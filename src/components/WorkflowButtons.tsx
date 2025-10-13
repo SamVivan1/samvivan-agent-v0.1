@@ -80,11 +80,11 @@ export const WorkflowButtons = () => {
   };
 
   return (
-    <div className="flex gap-3 w-full">
+    <div className="flex flex-col sm:flex-row gap-3 w-full">
       <Button
         onClick={triggerAbsen}
         disabled={absenLoading}
-        className="flex-1 glass-card hover:bg-card/60 text-foreground border-primary/30 hover:border-primary transition-all h-12"
+        className="flex glass-card hover:bg-card/60 text-foreground border-primary/30 hover:border-primary transition-all h-12"
         variant="outline"
       >
         {absenLoading ? (
@@ -98,7 +98,7 @@ export const WorkflowButtons = () => {
       <Button
         onClick={triggerBackup}
         disabled={backupLoading}
-        className="flex-1 glass-card hover:bg-card/60 text-foreground border-secondary/30 hover:border-secondary transition-all h-12"
+        className="flex glass-card hover:bg-card/60 text-foreground border-secondary/30 hover:border-secondary transition-all h-12"
         variant="outline"
       >
         {backupLoading ? (
