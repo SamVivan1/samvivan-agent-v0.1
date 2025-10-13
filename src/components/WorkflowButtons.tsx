@@ -11,7 +11,7 @@ export const WorkflowButtons = () => {
     setAbsenLoading(true);
     try {
       const response = await fetch(
-        "https://n8n.samvivan.my.id/webhook-test/28a15265-0a35-41b8-a33d-d10594d08b60",
+        "https://n8n.samvivan.my.id/webhook/28a15265-0a35-41b8-a33d-d10594d08b60",
         {
           method: "POST",
           headers: {
@@ -47,7 +47,7 @@ export const WorkflowButtons = () => {
     setBackupLoading(true);
     try {
       const response = await fetch(
-        "https://n8n.samvivan.my.id/webhook-test/c9281975-90e8-4adf-a6d9-de14ac071abc",
+        "https://n8n.samvivan.my.id/webhook/c9281975-90e8-4adf-a6d9-de14ac071abc",
         {
           method: "POST",
           headers: {
