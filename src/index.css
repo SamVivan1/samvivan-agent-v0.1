@@ -1,149 +1,103 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Tailwind v4 Theme Configuration */
-@theme {
-  /* Color System - All HSL values */
-  --color-background: hsl(240 20% 8%);
-  --color-foreground: hsl(210 40% 98%);
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
 
-  --color-card: hsl(240 15% 12%);
-  --color-card-foreground: hsl(210 40% 98%);
+@layer base {
+  :root {
+    --background: 240 20% 8%;
+    --foreground: 210 40% 98%;
 
-  --color-popover: hsl(240 15% 12%);
-  --color-popover-foreground: hsl(210 40% 98%);
+    --card: 240 15% 12%;
+    --card-foreground: 210 40% 98%;
 
-  --color-primary: hsl(270 80% 65%);
-  --color-primary-foreground: hsl(210 40% 98%);
+    --popover: 240 15% 12%;
+    --popover-foreground: 210 40% 98%;
 
-  --color-secondary: hsl(195 100% 50%);
-  --color-secondary-foreground: hsl(240 20% 8%);
+    --primary: 270 80% 65%;
+    --primary-foreground: 210 40% 98%;
 
-  --color-muted: hsl(240 10% 20%);
-  --color-muted-foreground: hsl(215 20% 65%);
+    --secondary: 195 100% 50%;
+    --secondary-foreground: 240 20% 8%;
 
-  --color-accent: hsl(270 80% 65%);
-  --color-accent-foreground: hsl(210 40% 98%);
+    --muted: 240 10% 20%;
+    --muted-foreground: 215 20% 65%;
 
-  --color-destructive: hsl(0 84.2% 60.2%);
-  --color-destructive-foreground: hsl(210 40% 98%);
+    --accent: 270 80% 65%;
+    --accent-foreground: 210 40% 98%;
 
-  --color-border: hsl(240 10% 25%);
-  --color-input: hsl(240 10% 20%);
-  --color-ring: hsl(270 80% 65%);
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
 
-  --color-sidebar-background: hsl(0 0% 98%);
-  --color-sidebar-foreground: hsl(240 5.3% 26.1%);
-  --color-sidebar-primary: hsl(240 5.9% 10%);
-  --color-sidebar-primary-foreground: hsl(0 0% 98%);
-  --color-sidebar-accent: hsl(240 4.8% 95.9%);
-  --color-sidebar-accent-foreground: hsl(240 5.9% 10%);
-  --color-sidebar-border: hsl(220 13% 91%);
-  --color-sidebar-ring: hsl(217.2 91.2% 59.8%);
+    --border: 240 10% 25%;
+    --input: 240 10% 20%;
+    --ring: 270 80% 65%;
 
-  /* Border Radius */
-  --radius-lg: 0.75rem;
-  --radius-md: calc(0.75rem - 2px);
-  --radius-sm: calc(0.75rem - 4px);
+    --radius: 0.75rem;
 
-  /* Font Family */
-  --font-sans: 'Inter', sans-serif;
+    --gradient-primary: linear-gradient(135deg, hsl(270 80% 65%) 0%, hsl(195 100% 50%) 100%);
+    --gradient-bg: linear-gradient(180deg, hsl(240 25% 10%) 0%, hsl(240 20% 8%) 100%);
+    --glow-primary: 0 0 30px hsl(270 80% 65% / 0.3);
+    --glow-secondary: 0 0 30px hsl(195 100% 50% / 0.3);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* Animations */
-  --animate-accordion-down: accordion-down 0.2s ease-out;
-  --animate-accordion-up: accordion-up 0.2s ease-out;
-  --animate-fade-in: fade-in 0.3s ease-out;
-  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
-  --animate-typing: typing 1.4s ease-in-out infinite;
+    --sidebar-background: 0 0% 98%;
 
-  @keyframes accordion-down {
-    from {
-      height: 0;
-    }
-    to {
-      height: var(--radix-accordion-content-height);
-    }
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  @keyframes accordion-up {
-    from {
-      height: var(--radix-accordion-content-height);
-    }
-    to {
-      height: 0;
-    }
-  }
-
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes pulse-glow {
-    0%, 100% {
-      box-shadow: 0 0 20px hsl(270 80% 65% / 0.3);
-    }
-    50% {
-      box-shadow: 0 0 40px hsl(270 80% 65% / 0.5);
-    }
-  }
-
-  @keyframes typing {
-    0%, 100% {
-      opacity: 0.2;
-    }
-    50% {
-      opacity: 1;
-    }
+  .dark {
+    --background: 240 20% 8%;
+    --foreground: 210 40% 98%;
   }
 }
 
-/* Custom CSS Variables (not part of Tailwind theme) */
-:root {
-  --gradient-primary: linear-gradient(135deg, hsl(270 80% 65%) 0%, hsl(195 100% 50%) 100%);
-  --gradient-bg: linear-gradient(180deg, hsl(240 25% 10%) 0%, hsl(240 20% 8%) 100%);
-  --glow-primary: 0 0 30px hsl(270 80% 65% / 0.3);
-  --glow-secondary: 0 0 30px hsl(195 100% 50% / 0.3);
-  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    background: var(--gradient-bg);
+    background-attachment: fixed;
+  }
 }
 
-/* Base Styles */
-* {
-  border-color: var(--color-border);
-}
-
-body {
-  background-color: var(--color-background);
-  color: var(--color-foreground);
-  font-family: var(--font-sans);
-  background: var(--gradient-bg);
-  background-attachment: fixed;
-}
-
-/* Utility Classes */
-.glass-card {
-  background-color: hsl(240 15% 12% / 0.4);
-  backdrop-filter: blur(24px);
-  border: 1px solid hsl(240 10% 25% / 0.5);
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-}
-
-.glow-primary {
-  box-shadow: var(--glow-primary);
-}
-
-.glow-secondary {
-  box-shadow: var(--glow-secondary);
-}
-
-.gradient-text {
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+@layer utilities {
+  .glass-card {
+    @apply bg-card/40 backdrop-blur-xl border border-border/50 shadow-lg;
+  }
+  
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+  
+  .glow-secondary {
+    box-shadow: var(--glow-secondary);
+  }
+  
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 }
