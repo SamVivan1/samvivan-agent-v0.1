@@ -1,73 +1,113 @@
-# Welcome to your Lovable project
+# 🌐 n8n Workflow Frontend Dashboard
 
-## Project info
+## 📘 Tentang Proyek
 
-**URL**: https://lovable.dev/projects/10944e29-90d9-4e7e-b9bf-effa33cae167
+Ini adalah **frontend website** untuk mengelola dan memantau berbagai **workflow otomatisasi n8n pribadi**, dibangun menggunakan **React, Vite, dan TypeScript**.
 
-## How can I edit this code?
+Website ini berfungsi sebagai antarmuka visual dari sistem n8n yang menjalankan berbagai agent dan automasi berikut:
 
-There are several ways of editing your application.
+1. 🕒 **Absen Otomatis**  
+   Workflow yang menjalankan absen kuliah secara otomatis sesuai jadwal.  
+   File terkait: `absen-otomatis-JOwGA6XCfmsKkx5g.json`
 
-**Use Lovable**
+2. 💾 **Backup n8n Workflows**  
+   Workflow yang melakukan backup otomatis seluruh workflow aktif ke GitHub repository, disertai notifikasi ke Discord.  
+   File terkait: `backup-n8n-workflows-g3FxqxmmnS7h1qU7.json`
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/10944e29-90d9-4e7e-b9bf-effa33cae167) and start prompting.
+3. 🤖 **Ultimate Personal Assistant**  
+   Workflow utama berbasis AI yang berperan sebagai pusat koordinasi dari beberapa agent:
+   - Finance Agent (pencatat keuangan)
+   - Calendar Agent (pengatur jadwal)
+   - Homelab IT Agent (pengelola server)
+   - Absen Agent (integrasi absen otomatis)
 
-Changes made via Lovable will be committed automatically to this repo.
+   File terkait: `ultimate-personal-assistant-U1haGqYgKBrLqDW7.json`
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## ⚙️ Teknologi yang Digunakan
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Frontend ini dikembangkan menggunakan:
 
-Follow these steps:
+- ⚛️ **React**  
+- ⚡ **Vite**  
+- 🧠 **TypeScript**  
+- 🎨 **Tailwind CSS**  
+- 🧩 **shadcn/ui** (komponen UI modern berbasis Radix + Tailwind)
+- 🔗 Integrasi API ke instance **n8n self-hosted / homelab**
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+---
+
+## 🚀 Cara Menjalankan Secara Lokal
+
+Pastikan sudah terpasang **Node.js** dan **npm**.  
+Lalu ikuti langkah berikut:
+
+```bash
+# 1️⃣ Clone repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# 2️⃣ Masuk ke direktori proyek
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# 3️⃣ Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# 4️⃣ Jalankan server pengembangan
 npm run dev
+````
+
+Akses aplikasi di:
+👉 [http://localhost:5173](http://localhost:5173)
+
+---
+
+## 🧩 Integrasi dengan n8n
+
+Frontend ini terhubung dengan instance **n8n pribadi** melalui API endpoint yang aman.
+Beberapa fitur utama yang tersedia:
+
+* Melihat status workflow dan eksekusi terakhir
+* Memicu workflow manual seperti *Absen Otomatis* atau *Backup*
+* Menampilkan log output secara real-time dari server homelab
+* Memberi notifikasi hasil melalui Discord atau Telegram
+
+Pastikan file `.env` berisi konfigurasi endpoint dan token autentikasi n8n:
+
+```env
+VITE_N8N_BASE_URL=https://your-n8n-instance/api/v1
+VITE_N8N_API_KEY=your_n8n_personal_api_key
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📦 Deployment
 
-**Use GitHub Codespaces**
+Frontend dapat dideploy di berbagai platform:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+* Vercel
+* Netlify
+* Cloudflare Pages
+* VPS pribadi / Docker container
 
-## What technologies are used for this project?
+Untuk build produksi:
 
-This project is built with:
+```bash
+npm run build
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Output akan tersedia di folder `/dist` dan siap untuk dideploy.
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/10944e29-90d9-4e7e-b9bf-effa33cae167) and click on Share -> Publish.
+## 🧠 Catatan
 
-## Can I connect a custom domain to my Lovable project?
+Frontend ini berfungsi sebagai **UI layer** untuk sistem agent cerdas berbasis n8n, di mana setiap workflow memiliki peran spesifik seperti:
 
-Yes, you can!
+* Automasi absen kuliah
+* Backup GitHub
+* Integrasi dengan Homelab dan AI agent
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+© 2025 — Developed by **SamVivan** and some vibe code with several tools 🦾
