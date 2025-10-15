@@ -44,7 +44,7 @@ const Index = () => {
     if (token) headers["Authorization"] = `Bearer ${token}`;
 
     const response = await fetch(
-      "https://n8n.samvivan.my.id/webhook/13951f35-791b-4364-b6a5-a66307eb402c",
+      "your_n8n_webhook",
       {
         method: "POST",
         headers,
